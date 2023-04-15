@@ -1,5 +1,6 @@
 var saveBtn = $('#saveBtn')
 var displayDate = $('#currentDay');
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -7,6 +8,33 @@ var displayDate = $('#currentDay');
 function displayCurrentDate() {
   var today = dayjs().format('dddd, MMMM D');
   displayDate.text(today);
+}
+
+var rows = document.getElementsByClassName("row");
+let currentHour = parseInt(dayjs().format('H'));
+
+Array.from(rows).forEach(row => {
+  let
+    rowIdString = row.id,
+    rowHour;
+  if (rowIdString) {
+    rowHour = parseInt(rowIdString);
+  }
+  if (rowHour) {
+    if (currentHour === rowHour) {
+      setColor(row, 'red');
+    } else if ((currentHour < rowHour) && (currentHour > rowHour - 6)) {
+      setColor(row, 'green');
+    } else if ((currentHour > rowHour) && (currentHour < rowHour + 6)) {
+      setColor(row, 'lightgrey');
+    } else {
+      setColor(row, 'white');
+    }
+  }
+});
+
+function setColor(element, color) {
+  element.style.backgroundColor = color;
 }
 
 $(function () {

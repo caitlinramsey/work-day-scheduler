@@ -12,6 +12,15 @@ textarea {
   padding: 10px;
 }
 
+.display-3 {
+ text-align: center;
+}
+
+.lead {
+ text-align: center;
+ font-size: 1rem;
+}
+
 .description {
   white-space: pre-wrap;
 }

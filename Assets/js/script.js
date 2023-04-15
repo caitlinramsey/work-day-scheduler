@@ -1,12 +1,12 @@
-// var saveBtn = $('#')
-var dayDisplay = $('#currentDay');
+var saveBtn = $('#saveBtn')
+var displayDate = $('#currentDay');
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-function displayDate() {
+function displayCurrentDate() {
   var today = dayjs().format('dddd, MMMM D');
-  dayDisplay.text(today);
+  displayDate.text(today);
 }
 
 $(function () {
@@ -50,5 +50,21 @@ function printEvents() {
 
 }
 
-saveBtn.on('click', )
+function deleteEvent() {
+  var eventsIndex = parseInt($(this).attr('data-index'));
+  var events = saveScheduledEventFromStorage();
+  events.splice(eventsIndex, 1);
+  saveScheduledEventFromStorage(events);
+  printEvents();
+}
+
+function handleEventsFormSubmit(event) {
+  event.preventDefualt();
+}
+
+saveBtn.on('click', handleEventsFormSubmit);
+
+displayCurrentDate();
+
+printEvents();
 

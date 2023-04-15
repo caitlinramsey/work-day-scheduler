@@ -57,7 +57,7 @@ $(function () {
 });
 
 function saveScheduledEventFromStorage() {
-  var scheduledEvent = localStorage.getItem('events')
+  var events = localStorage.getItem('events')
   if (events) {
     events = JSON.parse(events);
   } else {
@@ -86,6 +86,13 @@ function deleteEvent() {
 
 function handleEventsFormSubmit(event) {
   event.preventDefualt();
+  var newEvent = {
+    
+  }
+  var events = saveScheduledEventFromStorage();
+  projects.push(newEvent);
+  saveScheduledEventToStorage(events);
+  printEvents();
 }
 
 saveBtn.on('click', handleEventsFormSubmit);

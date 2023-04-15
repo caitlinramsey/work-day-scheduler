@@ -87,7 +87,7 @@ function deleteEvent() {
 function handleEventsFormSubmit(event) {
   event.preventDefualt();
   var newEvent = {
-    
+    //enter textarea input?
   }
   var events = saveScheduledEventFromStorage();
   projects.push(newEvent);

@@ -1,4 +1,4 @@
-var saveBtn = $('#saveBtn')
+var saveBtn = $('.saveBtn')
 var displayDate = $('#currentDay');
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
@@ -79,7 +79,8 @@ function deleteEvent() {
 }
 
 function handleEventsFormSubmit(event) {
-  event.preventDefualt();
+  event.preventDefault();
+  console.log($(event.target).parents('.row').first().children('textarea').val());
   var newEvent = {
     //enter textarea input?
   }

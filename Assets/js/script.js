@@ -84,11 +84,11 @@ function handleEventsFormSubmit(event) {
   var value = $(event.target).parents('.row').first().children('textarea').val();
   var time = $('.countainer-fluid').children;
   localStorage.setItem(time, value);
+  printEvents();
 
   // var events = saveScheduledEventFromStorage();
   // // projects.push(newEvent);
   // saveScheduledEventToStorage(events);
-  // printEvents();
 }
 
 saveBtn.on('click', handleEventsFormSubmit);

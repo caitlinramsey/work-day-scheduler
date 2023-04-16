@@ -1,6 +1,12 @@
-hr {
-  border: 3px solid black;
-  width: 100%;
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.dividerLine {
+  height: 8px;
+  width: 100vw;
+  margin-top: 40px;
+  background-color: #06aed5;
 }
 
 body {
@@ -19,6 +25,7 @@ textarea {
 
 .display-3 {
  text-align: center;
+ margin-top: 60px;
 }
 
 .lead {
@@ -36,6 +43,7 @@ textarea {
 
 .row {
   border-top: 1px solid white;
+  border-radius: 15px;
 }
 
 .hour {

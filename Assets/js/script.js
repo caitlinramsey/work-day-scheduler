@@ -82,13 +82,13 @@ function handleEventsFormSubmit(event) {
   event.preventDefault();
   console.log($(event.target).parents('.row').first().children('textarea').val());
   var value = $(event.target).parents('.row').first().children('textarea').val();
-  var time = $('.countainer-fluid').children;
+  var time = $(event.target).parents('.countainer-fluid').first().children('id').val();
   localStorage.setItem(time, value);
   printEvents();
 
-  // var events = saveScheduledEventFromStorage();
-  // // projects.push(newEvent);
-  // saveScheduledEventToStorage(events);
+  var events = saveScheduledEventFromStorage();
+  events.push(value, time);
+  saveScheduledEventToStorage(events);
 }
 
 saveBtn.on('click', handleEventsFormSubmit);

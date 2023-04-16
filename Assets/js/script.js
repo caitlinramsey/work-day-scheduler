@@ -81,13 +81,14 @@ function deleteEvent() {
 function handleEventsFormSubmit(event) {
   event.preventDefault();
   console.log($(event.target).parents('.row').first().children('textarea').val());
-  var newEvent = {
-    //enter textarea input?
-  }
-  var events = saveScheduledEventFromStorage();
-  projects.push(newEvent);
-  saveScheduledEventToStorage(events);
-  printEvents();
+  var value = $(event.target).parents('.row').first().children('textarea').val();
+  var time = $('.countainer-fluid').children;
+  localStorage.setItem(time, value);
+
+  // var events = saveScheduledEventFromStorage();
+  // // projects.push(newEvent);
+  // saveScheduledEventToStorage(events);
+  // printEvents();
 }
 
 saveBtn.on('click', handleEventsFormSubmit);

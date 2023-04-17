@@ -1,10 +1,6 @@
 var saveBtn = $('.saveBtn')
 var displayDate = $('#currentDay');
 
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
 function displayCurrentDate() {
   var today = dayjs().format('dddd, MMMM D');
   displayDate.text(today);
@@ -53,9 +49,7 @@ function saveScheduledEventToStorage(events) {
 }
 
 function printEvents() {
-  for(
-    let i = 9; i < 18; i++ 
-  ) {
+  for(let i = 9; i < 18; i++) {
     var savedItem = localStorage.getItem(i)
     $('#' + i).children('textarea').val(savedItem)
   }

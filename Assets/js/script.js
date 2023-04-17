@@ -37,19 +37,6 @@ function setColor(element, color) {
   element.style.backgroundColor = color;
 }
 
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-});
-
 function saveScheduledEventFromStorage() {
   var events = localStorage.getItem('events')
   if (events) {
@@ -61,13 +48,17 @@ function saveScheduledEventFromStorage() {
 }
 
 function saveScheduledEventToStorage(events) {
+
   localStorage.setItem('events', JSON.stringify(events));
 }
 
 function printEvents() {
-
-  var events = saveScheduledEventFromStorage();
-
+  for(
+    let i = 9; i < 18; i++ 
+  ) {
+    var savedItem = localStorage.getItem(i)
+    $('#' + i).children('textarea').val(savedItem)
+  }
 }
 
 function deleteEvent() {
@@ -82,10 +73,10 @@ function handleEventsFormSubmit(event) {
   event.preventDefault();
   console.log($(event.target).parents('.row').first().children('textarea').val());
   var value = $(event.target).parents('.row').first().children('textarea').val();
-  var time = $(event.target).parents('.countainer-fluid').first().children('id').val();
+  var time = $(this).parent().attr('id');
+  console.log(time, value);
   localStorage.setItem(time, value);
   printEvents();
-
   var events = saveScheduledEventFromStorage();
   events.push(value, time);
   saveScheduledEventToStorage(events);
